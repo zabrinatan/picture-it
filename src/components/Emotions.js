@@ -6,8 +6,7 @@ class Home extends Component {
     return(
       <div>
         <div id="home-container">
-          <h1 id="title">Picture it</h1>
-          <Link to={`/emotions`} className='navlink'>Emotions</Link>
+          <h1 id="title">Emotions</h1>
         </div>
       </div>
     );

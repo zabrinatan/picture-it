@@ -7,6 +7,7 @@ const Routes = (
   <Router>
     <div>
       <Route exact path = "/" component = {Home} />
+      <Route exact path = "/emotions" component = {Emotions} />
     </div>
   </Router>
 )
