@@ -2,7 +2,13 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 const emotionsAPI = "http://localhost:3000/emotions"
-class Home extends Component {
+class Emotions extends Component {
+  constructor() {
+    super()
+    this.state = {
+      emotions: [],
+    }
+  }
 
   componentDidMount() {
     this.getEmotions()
@@ -11,6 +17,7 @@ class Home extends Component {
   
   async getEmotions() {
     const response = await axios.get(emotionsAPI)
+    this.setState({emotions: response.data})
     console.log(response , '@@ZL response')
   }
 
@@ -18,12 +25,17 @@ class Home extends Component {
   render() {
     return(
       <div>
-        <div id="home-container">
           <h1 id="title">Emotions</h1>
-        </div>
+          {this.state.emotions.map((emotion) => {
+            return <div>
+              <h1>{emotion.emotion_name}</h1>
+              <img src={emotion.image}/>
+
+            </div>
+          })}
       </div>
-    );
+    )
   }
 };
 
-export default Home;
+export default Emotions
